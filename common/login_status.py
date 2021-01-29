@@ -3,11 +3,8 @@ import os
 import sys
 import json
 import urllib3
-urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-
-local_path = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
-sys.path.append(local_path)
 from common.read_config_file import get_config
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 
 class LoginStatus:
