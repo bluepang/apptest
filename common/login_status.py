@@ -3,7 +3,7 @@ import os
 import sys
 import json
 import urllib3
-from common.read_config_file import get_config
+from common.process_config_file import get_config
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 

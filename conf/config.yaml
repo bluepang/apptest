@@ -1,1 +1,4 @@
 host: https://www.baidu.com
+pkg_name: com.test.1
+platform: ios
+serial_no: '11111'
