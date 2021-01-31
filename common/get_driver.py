@@ -14,13 +14,6 @@ class Driver(object):
         return cls.driver
 
 
-class WebDriver(Driver):
-    @classmethod
-    def get_driver(cls):
-        driver = webdriver.Chrome()
-        return super().get_driver(driver)
-
-
 class AndroidDriver(Driver):
     @classmethod
     def get_driver(cls):

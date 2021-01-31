@@ -1,6 +1,5 @@
-import uiautomator2 as u2
-from app_tests.pageobjects.android.edit_page import EditPage
-from app_tests.pageobjects.android.pick_page import PickPage
+from pageobjects.android import EditPage
+from pageobjects.android import PickPage
 
 # d = u2.connect()
 
