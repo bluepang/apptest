@@ -6,13 +6,15 @@ parse = argparse.ArgumentParser()
 parse.add_argument('-p', '--platform', dest='platform', type=str, default='android', help='test platform')
 parse.add_argument('-s', '--serial', dest='serial_no', type=str, default='', help='device serinalNo')
 parse.add_argument('-n', '--pkg', dest='pkg_name', type=str, default='', help='app package name')
+parse.add_argument('-u', '--url', dest='app_url', type=str, default='', help='app url')
 args = parse.parse_args()
 
 if __name__ == '__main__':
     dict = {
         'platform': args.platform,
         'serial_no': args.serial_no,
-        'pkg_name': args.pkg_name
+        'pkg_name': args.pkg_name,
+        'app_url': args.app_url
     }
     set_config(dict)
 

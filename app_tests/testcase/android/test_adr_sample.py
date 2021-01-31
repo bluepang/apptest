@@ -1,4 +1,4 @@
-from app_tests.testcase.base_case import BaseCase
+from app_tests.testcase.android.base_case import BaseCase
 from app_tests.pageobjects.android.home_page import HomePage
 from app_tests.pageobjects.android.pick_page import PickPage
 from app_tests.pageobjects.android.edit_page import EditPage

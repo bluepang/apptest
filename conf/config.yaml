@@ -1,4 +1,5 @@
 host: https://www.baidu.com
-pkg_name: com.test.1
-platform: ios
-serial_no: '11111'
+pkg_name: com.kwai.videoeditor
+platform: android
+serial_no: 'UMXDU20A10018714'
+app_url:

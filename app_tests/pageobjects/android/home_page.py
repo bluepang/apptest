@@ -1,4 +1,4 @@
-from app_tests.pageobjects.base_page import BasePage
+from app_tests.pageobjects.android.base_page import BasePage
 
 
 class HomePage(BasePage):

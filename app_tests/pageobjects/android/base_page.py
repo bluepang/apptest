@@ -1,9 +1,9 @@
-from common.get_driver import AppDriver
+from common.get_driver import AndroidDriver
 
 
 class BasePage(object):
     def __init__(self):
-        self.d = AppDriver.get_driver()
+        self.d = AndroidDriver.get_driver()
 
     def open(self, schema):
         self.d.open_url(schema)
