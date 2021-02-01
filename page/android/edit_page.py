@@ -1,4 +1,4 @@
-from pages.android.base_page import BasePage
+from page.android.base_page import BasePage
 
 
 class EditPage(BasePage):

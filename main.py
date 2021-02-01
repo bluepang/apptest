@@ -21,12 +21,11 @@ set_config(conf_dict)
 
 if __name__ == '__main__':
     if args.device_platform == 'android':
-        case_path = 'cases/android'
+        case_path = 'case/android'
         if args.app_url:
             AndroidInstaller.install()
     else:
-        case_path = 'cases/ios'
+        case_path = 'case/ios'
         if args.app_url:
             IosInstaller.install()
-
-    pytest.main([case_path])
+    pytest.main(['-s', '-v', case_path, '--html=./report/report.html', '--alluredir', './report/allure-results'])

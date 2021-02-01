@@ -1,7 +1,7 @@
-from cases.android.base_case import BaseCase
-from pages.android.pick_page import PickPage
-from pages.android.edit_page import EditPage
-from pages.android.export_done_page import ExportDonePage
+from case.android.base_case import BaseCase
+from page.android.pick_page import PickPage
+from page.android.edit_page import EditPage
+from page.android.export_done_page import ExportDonePage
 
 
 class TestSample(BaseCase):
