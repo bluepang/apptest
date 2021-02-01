@@ -1,4 +1,4 @@
-from tests.pageobjects.android.base_page import BasePage
+from pages.android.base_page import BasePage
 
 
 class PickPage(BasePage):
@@ -7,7 +7,7 @@ class PickPage(BasePage):
         super().__init__()
         self.close_button = self.d(resourceId='com.kwai.videoeditor:id/a1l')
         self.pick_icon_list = self.d(resourceId='com.kwai.videoeditor:id/yz')
-        self.confirm_button = self.d(resourceId='com.kwai.videoeditor:id/ab2')
+        self.confirm_button = self.d(resourceId='com.kwai.videoeditor:id/ac3')
 
     def open(self):
         super().open('kwaiying://pick')

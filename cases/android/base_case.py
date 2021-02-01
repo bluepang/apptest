@@ -1,4 +1,4 @@
-from core.get_driver import AndroidDriver
+from core.driver import AndroidDriver
 from common.process_config_file import get_config
 
 
@@ -8,7 +8,7 @@ class BaseCase(object):
         self.d = AndroidDriver.get_driver()
         if not self.d.info.get('screenOn'):
             self.d.screen_on()
-        self.d.press('home')
+            self.d(scrollable=True).scroll.toBeginning()
         self.d.app_start(get_config('app_name'))
 
     def teardown_method(self, method):

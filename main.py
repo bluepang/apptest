@@ -21,11 +21,11 @@ set_config(conf_dict)
 
 if __name__ == '__main__':
     if args.device_platform == 'android':
-        case_path = 'tests/testcase/android'
+        case_path = 'cases/android'
         if args.app_url:
             AndroidInstaller.install()
     else:
-        case_path = 'tests/testcase/ios'
+        case_path = 'cases/ios'
         if args.app_url:
             IosInstaller.install()
 

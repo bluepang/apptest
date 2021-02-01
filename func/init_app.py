@@ -1,4 +1,4 @@
-from core.get_driver import AndroidDriver
+from core.driver import AndroidDriver
 from common.process_config_file import get_config
 
 

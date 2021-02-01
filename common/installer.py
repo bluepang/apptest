@@ -1,8 +1,8 @@
-from core.get_driver import AndroidDriver
+from core.driver import AndroidDriver
 from common.process_config_file import get_config
-from tests.func.init_app import InitApp
+from func.init_app import InitApp
 from common.download_file import download
-from common.logger import Logger
+from common.logger import Log
 import subprocess
 
 
@@ -20,9 +20,9 @@ class AndroidInstaller(object):
         target = "/data/local/tmp/_tmp.apk"
         file_obj = download(get_config('app_url'))
         driver.push(file_obj, target)
-        Logger.info("pm install -rt {}".format(target))
+        Log().info("pm install -rt {}".format(target))
         cmd = 'adb -s {0} shell pm install -r -t {1}'.format(get_config('device_serial'), target)
-        Logger.info(cmd)
+        Log().info(cmd)
         subprocess.Popen(cmd, shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
 
         # 根据机型实现不同安装过程

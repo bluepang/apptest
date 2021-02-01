@@ -1,4 +1,4 @@
-from core.get_driver import AndroidDriver
+from core.driver import AndroidDriver
 
 
 class BasePage(object):

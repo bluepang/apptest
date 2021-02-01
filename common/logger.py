@@ -1,7 +1,9 @@
 import logging
 
 
-class Logger(object):
-    @staticmethod
-    def info(text):
-        logging.getLogger().info(text)
+class Log(object):
+    def __init__(self):
+        self.log = logging.getLogger()
+
+    def info(self, text):
+        self.log.info(text)
