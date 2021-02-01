@@ -13,5 +13,3 @@ class InitApp():
         self.d(text='始终允许').click()
         self.d(resourceId='com.kwai.videoeditor:id/a7q').click()
         self.d(text='始终允许').click()
-        self.d.press('back')
-        self.d(text='创作').click()

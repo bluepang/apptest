@@ -1,29 +1,37 @@
 from core.get_driver import AndroidDriver
 from common.process_config_file import get_config
 from tests.func.init_app import InitApp
+from common.download_file import download
+from common.logger import Logger
 import subprocess
 
 
 class AndroidInstaller(object):
     @staticmethod
     def install():
-        driver = AndroidDriver().get_driver()
+        driver = AndroidDriver.get_driver()
         # 卸载app
         try:
             driver.app_uninstall(get_config('app_name'))
         except:
             pass
-        # 拉起安装程序
-        try:
-            driver.app_install(get_config('app_url'))
-        except:
-            pass
+
+        # 下载apk并拉起安装程序
+        target = "/data/local/tmp/_tmp.apk"
+        file_obj = download(get_config('app_url'))
+        driver.push(file_obj, target)
+        Logger.info("pm install -rt {}".format(target))
+        cmd = 'adb -s {0} shell pm install -r -t {1}'.format(get_config('device_serial'), target)
+        Logger.info(cmd)
+        subprocess.Popen(cmd, shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+
         # 根据机型实现不同安装过程
         brand = driver.device_info.get('brand')
         if brand == 'HUAWEI':
             driver(text='继续安装').click()
             driver(text='继续安装').click()
             driver(text='完成').click()
+
         # 初始化app
         InitApp().init_android_app()
 
