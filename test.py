@@ -1,8 +1,4 @@
-from pageobjects.android import EditPage
-from pageobjects.android import PickPage
+import uiautomator2 as u2
 
-# d = u2.connect()
-
-PickPage().open()
-PickPage().pick_video_confirm()
-EditPage().direct_export()
+d = u2.connect()
+print(d.device_info)

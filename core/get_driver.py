@@ -1,6 +1,5 @@
 import uiautomator2 as u2
 import wda
-from selenium import webdriver
 from common.process_config_file import get_config
 
 

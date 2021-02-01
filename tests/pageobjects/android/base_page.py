@@ -1,8 +1,8 @@
-from common.get_driver import AndroidDriver
+from core.get_driver import AndroidDriver
 
 
 class BasePage(object):
-    def __init__(self):
+    def __init__(self, driver):
         self.d = AndroidDriver.get_driver()
 
     def open(self, schema):

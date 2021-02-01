@@ -1,39 +1,31 @@
-from common.get_driver import AndroidDriver, IosDriver
+from core.get_driver import AndroidDriver
 from common.process_config_file import get_config
-from pageobjects.android.home_page import HomePage
-from pageobjects.android.pick_page import PickPage
-from pageobjects.android.edit_page import EditPage
-from pageobjects.android.export_done_page import ExportDonePage
-import time
+from tests.func.init_app import InitApp
+import subprocess
 
 
 class AndroidInstaller(object):
     @staticmethod
     def install():
         driver = AndroidDriver().get_driver()
+        # 卸载app
         try:
-            driver.app_uninstall(get_config('pkg_name'))
+            driver.app_uninstall(get_config('app_name'))
         except:
             pass
+        # 拉起安装程序
         try:
             driver.app_install(get_config('app_url'))
         except:
             pass
-        try:
+        # 根据机型实现不同安装过程
+        brand = driver.device_info.get('brand')
+        if brand == 'HUAWEI':
             driver(text='继续安装').click()
             driver(text='继续安装').click()
             driver(text='完成').click()
-        except:
-            pass
-        driver.app_start(get_config('pkg_name'))
-        HomePage().switch_to_home()
-        HomePage().switch_to_home()
-        HomePage().goin_pick_page()
-        PickPage().pick_video_confirm()
-        EditPage().direct_export()
-        ExportDonePage().close_pop()
-        time.sleep(3)
-        driver.app_stop(get_config('pkg_name'))
+        # 初始化app
+        InitApp().init_android_app()
 
 
 class IosInstaller(object):

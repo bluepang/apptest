@@ -24,7 +24,8 @@ def set_config(dict):
 
     result_dict = yaml.load(result, Loader=yaml.FullLoader)
     for k, v in dict.items():
-        result_dict[k] = v
+        if v:
+            result_dict[k] = v
 
     with open(config_file_path, 'w') as f:
         yaml.dump(result_dict, f)

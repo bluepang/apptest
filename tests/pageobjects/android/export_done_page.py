@@ -1,4 +1,4 @@
-from pageobjects.android.base_page import BasePage
+from tests.pageobjects import BasePage
 
 
 class ExportDonePage(BasePage):
