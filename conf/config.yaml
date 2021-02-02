@@ -1,4 +1,5 @@
-app_name: com.kwai.videoeditor
+wda_app_name: com.videoeditor.wda.xctrunner
+app_name: com.kwai.videoeditor.beta1
 app_url: https://android-apps.pp.cn/fs08/2021/01/19/8/110_8b62577f7cd3aa2c1af49bf10c2380a9.apk
-device_platform: android
-device_serial: UMXDU20A10018714
+device_platform: ios
+device_serial: 00008030-001024CC0E89802E
