@@ -1,5 +1,5 @@
 import uiautomator2 as u2
-import wda
+# import wda
 from common.process_config_file import get_config
 
 
@@ -20,8 +20,8 @@ class AndroidDriver(Driver):
         return super().get_driver(driver)
 
 
-class IosDriver(Driver):
-    @classmethod
-    def get_driver(cls):
-        driver = wda.Client()
-        return super().get_driver(driver)
+# class IosDriver(Driver):
+#     @classmethod
+#     def get_driver(cls):
+#         driver = wda.Client()
+#         return super().get_driver(driver)
