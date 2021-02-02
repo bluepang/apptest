@@ -28,4 +28,4 @@ if __name__ == '__main__':
         case_path = 'case/ios'
         if args.app_url:
             IosInstaller.install()
-    pytest.main(['-s', '-v', case_path, '--html=./report/pytest_report/report.html', '--alluredir=./report/allure_report'])
+    pytest.main(['-s', '-v', case_path, '--alluredir=./report'])
