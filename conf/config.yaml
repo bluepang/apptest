@@ -1,5 +1,5 @@
 device_platform: ios
 device_serial: 00008030-001024CC0E89802E
 target_app_name: com.kwai.videoeditor.beta1
-target_app_url: https://multiserver.corp.kuaishou.com/data_multiserver/test/KwaiYDelux/iOS/20210131/f8ca669dd378b3b02eb65626d02e7059/Kwai-iOS.ipa
+target_app_url:
 wda_app_name: com.krunner.wda.chenli.xctrunner
