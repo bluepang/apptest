@@ -1,4 +1,4 @@
-from case.android.base_case import BaseCase
+from case.android import BaseCase
 from page.android.pick_page import PickPage
 from page.android.edit_page import EditPage
 from page.android.export_done_page import ExportDonePage

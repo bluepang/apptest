@@ -1,6 +1,6 @@
 import uiautomator2 as u2
 import wda
-from common.process_config_file import get_config
+from common.process_config_file import Config
 
 
 class Driver(object):
@@ -16,12 +16,12 @@ class Driver(object):
 class AndroidDriver(Driver):
     @classmethod
     def get_driver(cls):
-        driver = u2.connect(get_config('serial_no'))
+        driver = u2.connect(Config().get_serial())
         return super().get_driver(driver)
 
 
 class IosDriver(Driver):
     @classmethod
     def get_driver(cls):
-        driver = wda.USBClient(get_config('device_serial'), port=8100)
+        driver = wda.USBClient(Config().get_serial(), port=8100)
         return super().get_driver(driver)

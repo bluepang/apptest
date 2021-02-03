@@ -1,7 +1,8 @@
 import pytest
 import argparse
-from common.process_config_file import set_config
-from common.installer import AndroidInstaller, IosInstaller
+import os
+from common.process_config_file import Config
+from common.installer import Installer
 
 parser = argparse.ArgumentParser()
 parser.add_argument('-p', '--platform', dest='device_platform', type=str, default='', help='device platform')
@@ -13,19 +14,12 @@ args = parser.parse_args()
 conf_dict = {
     'device_platform': args.device_platform,
     'device_serial': args.device_serial,
-    'app_name': args.app_name,
-    'app_url': args.app_url
+    'target_app_name': args.app_name,
+    'target_app_url': args.app_url
 }
-set_config(conf_dict)
+Config().set_config(conf_dict)
 
 
 if __name__ == '__main__':
-    if args.device_platform == 'android':
-        case_path = 'case/android'
-        if args.app_url:
-            AndroidInstaller.install()
-    else:
-        case_path = 'case/ios'
-        if args.app_url:
-            IosInstaller.install()
-    pytest.main(['-s', '-v', case_path, '--alluredir=./allure_results'])
+    Installer().install()
+    pytest.main(['-s', '-v', os.path.join('case', Config().get_platform()), '--alluredir=./allure_results'])

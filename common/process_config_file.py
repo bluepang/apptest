@@ -2,34 +2,48 @@ import yaml
 import os
 
 
-config_file_path = os.path.join(
-    os.path.dirname(os.path.dirname(os.path.realpath(__file__))),
-    'conf/config.yaml'
-)
+class Config(object):
+    def __init__(self):
+        self.config_file_path = os.path.join(
+            os.path.dirname(os.path.dirname(os.path.realpath(__file__))),
+            'conf/config.yaml'
+        )
 
+    def __get_config(self, *args):
+        f = open(r'{}'.format(self.config_file_path))
+        y = yaml.load(f, Loader=yaml.FullLoader)
+        length = len(args)
+        for i in range(length):
+            y = y.get(args[i])
+        return y
 
-def get_config(*args):
-    f = open(r'{}'.format(config_file_path))
-    y = yaml.load(f, Loader=yaml.FullLoader)
-    # print(args)
-    length = len(args)
-    for i in range(length):
-        y = y.get(args[i])
-    return y
+    def get_platform(self):
+        return self.__get_config('device_platform')
 
+    def get_serial(self):
+        return self.__get_config('device_serial')
 
-def set_config(dict):
-    with open(config_file_path, 'r') as f:
-        result = f.read()
+    def get_wda_name(self):
+        return self.__get_config('wda_app_name')
 
-    result_dict = yaml.load(result, Loader=yaml.FullLoader)
-    for k, v in dict.items():
-        if v:
-            result_dict[k] = v
+    def get_target_name(self):
+        return self.__get_config('target_app_name')
 
-    with open(config_file_path, 'w') as f:
-        yaml.dump(result_dict, f)
+    def get_target_url(self):
+        return self.__get_config('target_app_url')
+
+    def set_config(self, dict):
+        with open(self.config_file_path, 'r') as f:
+            result = f.read()
+
+        result_dict = yaml.load(result, Loader=yaml.FullLoader)
+        for k, v in dict.items():
+            if v:
+                result_dict[k] = v
+
+        with open(self.config_file_path, 'w') as f:
+            yaml.dump(result_dict, f)
 
 
 if __name__ == '__main__':
-    print(get_config('host', 'host_test'))
+    pass

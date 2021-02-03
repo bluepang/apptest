@@ -1,4 +1,4 @@
-from page.android.base_page import BasePage
+from page.android import BasePage
 
 
 class HomePage(BasePage):

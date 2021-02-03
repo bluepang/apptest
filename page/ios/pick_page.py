@@ -1,4 +1,4 @@
-from page.ios.base_page import BasePage
+from page.ios import BasePage
 
 
 class PickPage(BasePage):
