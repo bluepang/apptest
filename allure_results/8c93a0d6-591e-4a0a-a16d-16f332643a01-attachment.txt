@@ -1,0 +1,2 @@
+2021-00-02/03/21 15:00:18 (logger.py       :9  ) [32mINFO    [0m ios server start successfully
+2021-00-02/03/21 15:00:41 (logger.py       :9  ) [32mINFO    [0m ios server stop successfully

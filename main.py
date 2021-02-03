@@ -9,6 +9,7 @@ parser.add_argument('-p', '--platform', dest='device_platform', type=str, defaul
 parser.add_argument('-s', '--serial', dest='device_serial', type=str, default='', help='device serial no')
 parser.add_argument('-n', '--name', dest='app_name', type=str, default='', help='app name')
 parser.add_argument('-u', '--url', dest='app_url', type=str, default='', help='app url')
+parser.add_argument('-i', '--install', dest='if_install', help='if reinstall app', action='store_true')
 
 args = parser.parse_args()
 conf_dict = {
@@ -21,5 +22,6 @@ Config().set_config(conf_dict)
 
 
 if __name__ == '__main__':
-    Installer().install()
+    if args.if_install:
+        Installer().install()
     pytest.main(['-s', '-v', os.path.join('case', Config().get_platform()), '--alluredir=./allure_results'])
